@@ -1,0 +1,11 @@
+services:
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CONTROL_PLANE_OPENAI_API_KEY
+      - CLI_OPENAI_API_KEY
+    volumes:
+      - .:/app
+    working_dir: /app
